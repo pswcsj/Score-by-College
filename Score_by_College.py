@@ -65,4 +65,4 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
 
 score_by_college = pd.Series(dtype=float)
 
-print(cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history, score_by_college))
+print(cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, engish, history, score_by_college))
