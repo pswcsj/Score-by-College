@@ -71,6 +71,6 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
     su_byun_in = byun_finder('서강대', '인문', inquiry_ba1, inquiry_ba2)
     score_by_college['서강대(자연)'] = korean*1.1 + math*1.3 + su_byun*0.6 + eng_su[english-1] + han_su[history-1]
     score_by_college['서강대(인문)'] = korean * 1.1 + math * 1.3 + su_byun_in * 0.6 + eng_su[english - 1] + han_su[history - 1]
+    return score_by_college
 
-cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history, score_by_college)
-print(score_by_college)
+print(cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history, score_by_college))
