@@ -7,8 +7,6 @@ eng_han = [100, 98, 94, 88, 80, 70, 58, 44, 28]
 eng_han_in = [100, 96, 90, 82, 72, 60, 46, 30, 12]
 eng_jung = [100, 98, 95, 92, 86, 75, 64, 58, 50]
 eng_su = [100, 99, 98, 97, 96, 95, 94, 93, 92]
-eng_keon = [200, 198, 196, 193, 188, 183, 180, 170, 160]
-eng_keon_in = [200, 196, 193, 188, 183, 180, 170, 160, 150]
 
 han_seo = [0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4]
 han_yon = [10, 10, 10, 10, 9.8, 9.6, 9.4, 9.2, 9.0]
@@ -18,7 +16,6 @@ han_han = [0, 0, 0, 0, 0.1, 0.2, 0.3, 0.4, 0.5]
 han_han_in = [0, 0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
 han_jung = [10, 10, 10, 10, 9.6, 9.2, 8.8, 8.4, 8.0]
 han_su = [10, 10, 10, 10, 9.5, 9.0, 8.5, 8.0, 7.5]
-han_keon = [200, 200, 200, 200, 196, 193, 188, 183, 180]
 
 byun = pd.read_excel('./2022_변환표점.xls')
 korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history =\
@@ -55,6 +52,7 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
     han_byun_in = byun_finder('한양대', '인문', inquiry_ba1, inquiry_ba2)
     inquiry_highest = byun_finder('한양대', '자연', 100, 100)
     inquiry_highest_in = byun_finder('한양대', '인문', 100, 100)
+    print(inquiry_highest_in)
     score_by_college['한양대(자연)'] = korean/149*0.2*1000 + math/147*0.35*1000 + han_byun/inquiry_highest*0.35*1000+ eng_han[english-1] - han_han[history-1]
     score_by_college['한양대(인문)'] = korean/149*0.3*1000 + math/147*0.3*1000 + han_byun_in/inquiry_highest_in*0.3*1000 + eng_han_in[english-1] - han_han_in[history-1]
     score_by_college['한양대(상경)'] = korean/149*0.3*1000 + math/147*0.4*1000 + han_byun_in/inquiry_highest_in*0.2*1000 + eng_han_in[english - 1] - han_han_in[history - 1]
