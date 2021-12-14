@@ -52,7 +52,6 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
     han_byun_in = byun_finder('한양대', '인문', inquiry_ba1, inquiry_ba2)
     inquiry_highest = byun_finder('한양대', '자연', 100, 100)
     inquiry_highest_in = byun_finder('한양대', '인문', 100, 100)
-    print(inquiry_highest_in)
     score_by_college['한양대(자연)'] = korean/149*0.2*1000 + math/147*0.35*1000 + han_byun/inquiry_highest*0.35*1000+ eng_han[english-1] - han_han[history-1]
     score_by_college['한양대(인문)'] = korean/149*0.3*1000 + math/147*0.3*1000 + han_byun_in/inquiry_highest_in*0.3*1000 + eng_han_in[english-1] - han_han_in[history-1]
     score_by_college['한양대(상경)'] = korean/149*0.3*1000 + math/147*0.4*1000 + han_byun_in/inquiry_highest_in*0.2*1000 + eng_han_in[english - 1] - han_han_in[history - 1]
