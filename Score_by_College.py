@@ -1,8 +1,4 @@
 import pandas as pd
-import logging
-
-kor_highest = 149#국어 표준점수 최고점
-math_highest = 147#수학 표준점수 최고점
 
 eng_seo = [0, 0.5, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0]
 eng_yon = [100, 95, 87.5, 75, 60, 40, 25, 12.5, 5]
@@ -61,7 +57,7 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
     inquiry_highest_in = byun_finder('한양대', '인문', 100, 100)
     score_by_college['한양대(자연)'] = korean/149*0.2*1000 + math/147*0.35*1000 + han_byun/inquiry_highest*0.35*1000+ eng_han[english-1] - han_han[history-1]
     score_by_college['한양대(인문)'] = korean/149*0.3*1000 + math/147*0.3*1000 + han_byun_in/inquiry_highest_in*0.3*1000 + eng_han_in[english-1] - han_han_in[history-1]
-    score_by_college['한양대(상경)'] = korean/149*0.3*1000 + math/147*0.4*1000 + han_byun_in/110*0.2*1000 + eng_han_in[english - 1] - han_han_in[history - 1]
+    score_by_college['한양대(상경)'] = korean/149*0.3*1000 + math/147*0.4*1000 + han_byun_in/inquiry_highest_in*0.2*1000 + eng_han_in[english - 1] - han_han_in[history - 1]
     #과목에 나눈 값들은 각 과목 최고 표점/변환표점
 
     #중앙대
@@ -75,22 +71,6 @@ def cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, hist
     su_byun_in = byun_finder('서강대', '인문', inquiry_ba1, inquiry_ba2)
     score_by_college['서강대(자연)'] = korean*1.1 + math*1.3 + su_byun*0.6 + eng_su[english-1] + han_su[history-1]
     score_by_college['서강대(인문)'] = korean * 1.1 + math * 1.3 + su_byun_in * 0.6 + eng_su[english - 1] + han_su[history - 1]
-
-# # 로그 생성
-# logger = logging.getLogger()
-#
-# # 로그의 출력 기준 설정
-# logger.setLevel(logging.INFO)
-#
-# # log 출력 형식
-# formatter = logging.Formatter('%(asctime)s \n%(message)s')
-#
-# # log를 파일에 출력
-# file_handler = logging.FileHandler('my.log')
-# file_handler.setFormatter(formatter)
-# logger.addHandler(file_handler)
-#
-# logger.info(cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history, score_by_college))
 
 cal_score(korean, math, inquiry_std, inquiry_ba1, inquiry_ba2, english, history, score_by_college)
 print(score_by_college)
